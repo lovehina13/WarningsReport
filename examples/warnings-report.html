@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Segoe UI, Helvetica, Arial, sans-serif;
+        font-size: 12pt; }
+      table, th, td {
+        border: thin solid black;
+        border-collapse: collapse;
+        padding: 4pt; }
+      th {
+        background-color : #DFDFDF; }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr><th colspan=4>-Wconstant-conversion (1)</th></tr>
+      <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
+      <tr><td>/home/alexis/workspace/WarningsReport/examples/Main.cpp</td><td>5</td><td>13</td><td>implicit conversion from 'long' to 'int' changes value from 10000000000 to 1410065408</td></tr>
+    </table>
+    <br/>
+    <table>
+      <tr><th colspan=4>-Wunused-variable (1)</th></tr>
+      <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
+      <tr><td>/home/alexis/workspace/WarningsReport/examples/Main.cpp</td><td>5</td><td>9</td><td>unused variable 'x'</td></tr>
+    </table>
+    <br/>
+    <table>
+      <tr><th colspan=4>bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions (1)</th></tr>
+      <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
+      <tr><td>/home/alexis/workspace/WarningsReport/examples/Main.cpp</td><td>5</td><td>13</td><td>narrowing conversion from constant value 10000000000 (0x00000002540BE400) of type 'long' to signed type 'int' is implementation-defined</td></tr>
+    </table>
+    <br/>
+    <table>
+      <tr><th colspan=4>clang-diagnostic-constant-conversion (1)</th></tr>
+      <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
+      <tr><td>/home/alexis/workspace/WarningsReport/examples/Main.cpp</td><td>5</td><td>13</td><td>implicit conversion from 'long' to 'int' changes value from 10000000000 to 1410065408</td></tr>
+    </table>
+    <br/>
+    <table>
+      <tr><th colspan=4>clang-diagnostic-unused-variable (1)</th></tr>
+      <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
+      <tr><td>/home/alexis/workspace/WarningsReport/examples/Main.cpp</td><td>5</td><td>9</td><td>unused variable 'x'</td></tr>
+    </table>
+    <br/>
+    <table>
+      <tr><th colspan=4>cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers (1)</th></tr>
+      <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
+      <tr><td>/home/alexis/workspace/WarningsReport/examples/Main.cpp</td><td>5</td><td>13</td><td>10000000000 is a magic number; consider replacing it with a named constant</td></tr>
+    </table>
+    <br/>
+  </body>
+</html>
