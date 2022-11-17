@@ -30,19 +30,21 @@ def parseLog(lines):
     regex = r"(.*):(\d*):(\d*): warning: (.*) \[(.*)\]"
     for line in lines:
         if re.match(regex, line):
-            (_, file, line, column, message, warning, _) = re.split(regex, line)
-            if warning not in data:
-                data[warning] = {}
-            data[warning][(file, line, column)] = (file, line, column, message)
+            (_, file, line, column, message, warnings, _) = re.split(regex, line)
+            for warning in warnings.split(","):
+                if warning not in data:
+                    data[warning] = {}
+                data[warning][(file, line, column)] = (file, line, column, message)
     return data
 
 
 def formatData(data):
     """ Format data to HTML. """
     lines = []
+    lines.append(formatReportTable(data))
     for warning, table in sorted(data.items()):
-        length = len(table)
-        lines.append(formatTable(table, warning, length))
+        occurrences = len(table)
+        lines.append(formatWarningTable(table, warning, occurrences))
     lines = "\n".join(lines)
     template = str("""<!DOCTYPE html>
 <html>
@@ -66,24 +68,48 @@ def formatData(data):
     return template
 
 
-def formatTable(table, warning, length):
-    """ Format table to HTML. """
+def formatReportTable(data):
+    """ Format report table to HTML. """
     lines = []
-    for _, (file, line, column, message) in sorted(table.items()):
-        lines.append(formatLine(file, line, column, message))
+    total = 0
+    for warning, table in sorted(data.items()):
+        occurrences = len(table)
+        total += occurrences
+        lines.append(formatReportLine(warning, occurrences))
     lines = "\n".join(lines)
     template = str("""    <table>
-      <tr><th colspan=4>{0} (1)</th></tr>
-      <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
-{2}
+      <tr><th colspan=2>Warnings report ({0})</th></tr>
+      <tr><th>Warning</th><th>Occurrences</th></tr>
+{1}
     </table>
-    <br/>""").format(warning, length, lines)
+    <br/>""").format(total, lines)
     return template
 
 
-def formatLine(file, line, column, message):
-    """ Format line to HTML. """
-    template = str("      <tr><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td></tr>").format(file, line, column, message)
+def formatReportLine(warning, occurrences):
+    """ Format report line to HTML. """
+    template = str("""      <tr><td><a href="#{0}">{1}</a></td><td>{2}</td></tr>""").format(warning, warning, occurrences)
+    return template
+
+
+def formatWarningTable(table, warning, occurrences):
+    """ Format warning table to HTML. """
+    lines = []
+    for _, (file, line, column, message) in sorted(table.items()):
+        lines.append(formatWarningLine(file, line, column, message))
+    lines = "\n".join(lines)
+    template = str("""    <table>
+      <tr><th colspan=4><a id="{0}">{1} ({2})</a></th></tr>
+      <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
+{3}
+    </table>
+    <br/>""").format(warning, warning, occurrences, lines)
+    return template
+
+
+def formatWarningLine(file, line, column, message):
+    """ Format warning line to HTML. """
+    template = str("""      <tr><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td></tr>""").format(file, line, column, message)
     return template
 
 

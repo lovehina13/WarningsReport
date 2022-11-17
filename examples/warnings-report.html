@@ -15,37 +15,76 @@
   </head>
   <body>
     <table>
-      <tr><th colspan=4>-Wconstant-conversion (1)</th></tr>
+      <tr><th colspan=2>Warnings report (10)</th></tr>
+      <tr><th>Warning</th><th>Occurrences</th></tr>
+      <tr><td><a href="#-Wconstant-conversion">-Wconstant-conversion</a></td><td>1</td></tr>
+      <tr><td><a href="#-Wunused-variable">-Wunused-variable</a></td><td>1</td></tr>
+      <tr><td><a href="#bugprone-narrowing-conversions">bugprone-narrowing-conversions</a></td><td>1</td></tr>
+      <tr><td><a href="#clang-diagnostic-constant-conversion">clang-diagnostic-constant-conversion</a></td><td>1</td></tr>
+      <tr><td><a href="#clang-diagnostic-unused-variable">clang-diagnostic-unused-variable</a></td><td>1</td></tr>
+      <tr><td><a href="#cppcoreguidelines-avoid-magic-numbers">cppcoreguidelines-avoid-magic-numbers</a></td><td>1</td></tr>
+      <tr><td><a href="#cppcoreguidelines-narrowing-conversions">cppcoreguidelines-narrowing-conversions</a></td><td>1</td></tr>
+      <tr><td><a href="#misc-const-correctness">misc-const-correctness</a></td><td>1</td></tr>
+      <tr><td><a href="#readability-identifier-length">readability-identifier-length</a></td><td>1</td></tr>
+      <tr><td><a href="#readability-magic-numbers">readability-magic-numbers</a></td><td>1</td></tr>
+    </table>
+    <br/>
+    <table>
+      <tr><th colspan=4><a id="-Wconstant-conversion">-Wconstant-conversion (1)</a></th></tr>
       <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
       <tr><td>/home/alexis/workspace/WarningsReport/examples/Main.cpp</td><td>5</td><td>13</td><td>implicit conversion from 'long' to 'int' changes value from 10000000000 to 1410065408</td></tr>
     </table>
     <br/>
     <table>
-      <tr><th colspan=4>-Wunused-variable (1)</th></tr>
+      <tr><th colspan=4><a id="-Wunused-variable">-Wunused-variable (1)</a></th></tr>
       <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
       <tr><td>/home/alexis/workspace/WarningsReport/examples/Main.cpp</td><td>5</td><td>9</td><td>unused variable 'x'</td></tr>
     </table>
     <br/>
     <table>
-      <tr><th colspan=4>bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions (1)</th></tr>
+      <tr><th colspan=4><a id="bugprone-narrowing-conversions">bugprone-narrowing-conversions (1)</a></th></tr>
       <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
       <tr><td>/home/alexis/workspace/WarningsReport/examples/Main.cpp</td><td>5</td><td>13</td><td>narrowing conversion from constant value 10000000000 (0x00000002540BE400) of type 'long' to signed type 'int' is implementation-defined</td></tr>
     </table>
     <br/>
     <table>
-      <tr><th colspan=4>clang-diagnostic-constant-conversion (1)</th></tr>
+      <tr><th colspan=4><a id="clang-diagnostic-constant-conversion">clang-diagnostic-constant-conversion (1)</a></th></tr>
       <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
       <tr><td>/home/alexis/workspace/WarningsReport/examples/Main.cpp</td><td>5</td><td>13</td><td>implicit conversion from 'long' to 'int' changes value from 10000000000 to 1410065408</td></tr>
     </table>
     <br/>
     <table>
-      <tr><th colspan=4>clang-diagnostic-unused-variable (1)</th></tr>
+      <tr><th colspan=4><a id="clang-diagnostic-unused-variable">clang-diagnostic-unused-variable (1)</a></th></tr>
       <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
       <tr><td>/home/alexis/workspace/WarningsReport/examples/Main.cpp</td><td>5</td><td>9</td><td>unused variable 'x'</td></tr>
     </table>
     <br/>
     <table>
-      <tr><th colspan=4>cppcoreguidelines-avoid-magic-numbers,readability-magic-numbers (1)</th></tr>
+      <tr><th colspan=4><a id="cppcoreguidelines-avoid-magic-numbers">cppcoreguidelines-avoid-magic-numbers (1)</a></th></tr>
+      <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
+      <tr><td>/home/alexis/workspace/WarningsReport/examples/Main.cpp</td><td>5</td><td>13</td><td>10000000000 is a magic number; consider replacing it with a named constant</td></tr>
+    </table>
+    <br/>
+    <table>
+      <tr><th colspan=4><a id="cppcoreguidelines-narrowing-conversions">cppcoreguidelines-narrowing-conversions (1)</a></th></tr>
+      <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
+      <tr><td>/home/alexis/workspace/WarningsReport/examples/Main.cpp</td><td>5</td><td>13</td><td>narrowing conversion from constant value 10000000000 (0x00000002540BE400) of type 'long' to signed type 'int' is implementation-defined</td></tr>
+    </table>
+    <br/>
+    <table>
+      <tr><th colspan=4><a id="misc-const-correctness">misc-const-correctness (1)</a></th></tr>
+      <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
+      <tr><td>/home/alexis/workspace/WarningsReport/examples/Main.cpp</td><td>5</td><td>5</td><td>variable 'x' of type 'int' can be declared 'const'</td></tr>
+    </table>
+    <br/>
+    <table>
+      <tr><th colspan=4><a id="readability-identifier-length">readability-identifier-length (1)</a></th></tr>
+      <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
+      <tr><td>/home/alexis/workspace/WarningsReport/examples/Main.cpp</td><td>5</td><td>9</td><td>variable name 'x' is too short, expected at least 3 characters</td></tr>
+    </table>
+    <br/>
+    <table>
+      <tr><th colspan=4><a id="readability-magic-numbers">readability-magic-numbers (1)</a></th></tr>
       <tr><th>File</th><th>Line</th><th>Column</th><th>Message</th></tr>
       <tr><td>/home/alexis/workspace/WarningsReport/examples/Main.cpp</td><td>5</td><td>13</td><td>10000000000 is a magic number; consider replacing it with a named constant</td></tr>
     </table>
